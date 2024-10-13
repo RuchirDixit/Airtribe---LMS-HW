@@ -2,6 +2,8 @@ package aitribe.librarian;
 
 import aitribe.book.Book;
 import aitribe.manager.BookManager;
+import aitribe.manager.BookManagerSingleton;
+import aitribe.manager.PatronManagementSingleton;
 import aitribe.manager.PatronManager;
 import aitribe.patron.Patron;
 
@@ -16,8 +18,8 @@ public class Librarian {
 
     public Librarian(){
         libarianId = UUID.randomUUID().toString();
-        bookManager = new BookManager();
-        patronManager = new PatronManager();
+        bookManager = BookManagerSingleton.getInstance();
+        patronManager = PatronManagementSingleton.getInstance();
     }
 
     public List<Book> getAllAvailableBooks(){
