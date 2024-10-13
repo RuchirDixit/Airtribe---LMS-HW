@@ -5,6 +5,7 @@ import aitribe.patron.Patron;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class PatronManager {
 
@@ -15,10 +16,12 @@ public class PatronManager {
     }
 
     public void addNewPatron(Patron patron){
+        Logger.getAnonymousLogger().info("New patron added : " + patron);
         this.patronList.add(patron);
     }
 
     public void updatePatronContactInfo(String patronName, String newContact){
+        Logger.getAnonymousLogger().info("Updating patron contact");
         for(Patron patron : patronList){
             if(patron.getPatronName().equalsIgnoreCase(patronName)){
                 patron.setContactInfo(newContact);
@@ -30,6 +33,7 @@ public class PatronManager {
     }
 
     public void updatePatronAddress(String patronName, String newAddress){
+        Logger.getAnonymousLogger().info("Updating patron address");
         for(Patron patron : patronList){
             if(patron.getPatronName().equalsIgnoreCase(patronName)){
                 patron.setAddress(newAddress);

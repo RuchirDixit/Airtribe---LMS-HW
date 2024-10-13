@@ -5,6 +5,7 @@ import aitribe.book.Book;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 public class Patron {
     private String patronId;
@@ -62,10 +63,12 @@ public class Patron {
 
 
     public void borrowBook(Book book){
+        Logger.getAnonymousLogger().info("Patron borrowed book: " + book);
         this.borrowedBooks.add(book);
     }
 
     public void returnBorrowedBook(Book book){
+        Logger.getAnonymousLogger().info("Patron returned book: " + book);
         this.borrowedBooks.remove(book);
         this.history.add(book);
     }

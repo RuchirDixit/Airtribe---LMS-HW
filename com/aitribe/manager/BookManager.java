@@ -4,6 +4,7 @@ import aitribe.book.Book;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class BookManager {
     private List<Book> availableBooksInLibrary;
@@ -15,6 +16,7 @@ public class BookManager {
     }
 
     public void addNewBook(Book book){
+        Logger.getAnonymousLogger().info("Added new book : " + book);
         this.availableBooksInLibrary.add(book);
     }
 
@@ -32,16 +34,19 @@ public class BookManager {
     }
 
     public void borrowBook(Book book){
+        Logger.getAnonymousLogger().info("Book borrowed : " + book);
         this.availableBooksInLibrary.remove(book);
         this.borrowedBooksFromLibrary.add(book);
     }
 
     public void returnBook(Book book){
+        Logger.getAnonymousLogger().info("Book Returned : " + book);
         this.borrowedBooksFromLibrary.remove(book);
         this.availableBooksInLibrary.add(book);
     }
 
     public void removeBookFromInventory(Book book){
+        Logger.getAnonymousLogger().info("Book removed from inventory : " + book);
         this.availableBooksInLibrary.remove(book);
     }
 
