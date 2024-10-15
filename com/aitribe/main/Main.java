@@ -18,7 +18,12 @@ public class Main {
         librarian.addNewBookToInventory(book2);
         librarian.addNewPatron(patron);
         librarian.addNewPatron(patron2);
-        librarian.checkout(patron,book1);
+        if(book1.isBookAvailable()){
+            librarian.checkout(patron,book1);
+        }
+        else{
+            System.out.println("Book is out of stock to borrow");
+        }
         List<Book> allBooks = librarian.getAllAvailableBooks();
         if(allBooks.size()!=0){
             System.out.println("All Available books:");
